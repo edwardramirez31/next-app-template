@@ -1,4 +1,5 @@
 import { all, fork } from 'redux-saga/effects';
+
 import tasksSaga from './tasks';
 
 export default function* rootSaga(): Generator {

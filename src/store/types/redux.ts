@@ -1,4 +1,5 @@
 import type { Effect } from 'redux-saga/effects';
+
 import type { RootState } from '..';
 
 export type SagaReturn<R = void, Y = unknown> = Generator<Effect, R, Y>;

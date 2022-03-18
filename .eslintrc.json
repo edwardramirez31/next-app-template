@@ -19,12 +19,15 @@
       "plugin:redux-saga/recommended",
       "plugin:import/errors",
       "plugin:import/warnings",
-      "plugin:import/typescript"
+      "plugin:import/typescript",
+      "plugin:@next/next/recommended",
+      "next"
     ],
     "plugins": [
       "@typescript-eslint",
       "prettier",
-      "react"
+      "react",
+      "@next/eslint-plugin-next"
     ],
     "rules": {
         "prettier/prettier": "error",
@@ -51,6 +54,25 @@
         "@typescript-eslint/no-unused-vars": [
             "error",
             { "argsIgnorePattern": "^_action$" }
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": ["builtin", "external", "parent", "sibling", "index"],
+            "pathGroups": [
+              {
+                "pattern": "react",
+                "group": "external",
+                "position": "before"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["react"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
         ],
         "import/no-extraneous-dependencies": [
           "error",

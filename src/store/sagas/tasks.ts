@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
+import type { PayloadAction } from '@reduxjs/toolkit';
 import { all, put, call, takeEvery } from 'redux-saga/effects';
 import type { CallEffect, PutEffect } from 'redux-saga/effects';
-import type { PayloadAction } from '@reduxjs/toolkit';
-import type { ErrorObject } from '../types/models';
-import type { DjangoTask } from '../slices/tasks';
+
+import DjangoTodo from '../../apis/djangoTodo';
 import {
   addTask,
   addTaskError,
@@ -15,8 +15,8 @@ import {
   updateTask,
   updateTaskSuccess,
 } from '../slices/tasks';
-
-import DjangoTodo from '../../apis/djangoTodo';
+import type { DjangoTask } from '../slices/tasks';
+import type { ErrorObject } from '../types/models';
 
 function* addTaskSaga({
   payload: data,

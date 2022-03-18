@@ -1,25 +1,26 @@
 import { expectSaga } from 'redux-saga-test-plan';
-import DjangoTodo from '../../../api/djangoTodo';
+
+import rootSaga from '..';
 import { rootReducer } from '../..';
+import DjangoTodo from '../../../apis/djangoTodo';
 import {
   MOCKED_COMPLETED_DJANGO_TASK,
   MOCKED_COMPLETED_DJANGO_TASKS,
-  MOCKED_TASK,
   MOCKED_COMPLETED_TASKS,
   MOCKED_INCOMPLETED_DJANGO_TASK,
+  MOCKED_TASK,
 } from '../../../mock_data/tasks';
-import rootSaga from '..';
 import {
   addTask,
-  addTaskSuccess,
   addTaskError,
+  addTaskSuccess,
   getTask,
-  getTaskSuccess,
   getTaskError,
+  getTaskSuccess,
   removeTask,
   updateTask,
   updateTaskSuccess,
-} from '../../slices/taskSlice';
+} from '../../slices/tasks';
 
 describe('Tags sagas CRUD testing', () => {
   describe('addTaskSaga testing', () => {

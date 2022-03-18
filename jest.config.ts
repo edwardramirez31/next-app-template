@@ -1,6 +1,7 @@
 import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
   collectCoverage: true,
   collectCoverageFrom: ['!src/types/**/*.ts', 'src/**/*'],
   coveragePathIgnorePatterns: ['.*snap$', '/node_modules/', 'src/locales/'],
@@ -13,11 +14,12 @@ const config: Config.InitialOptions = {
       statements: 0,
     },
   },
+  moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
     '^@components$': '<rootDir>/src/components',
+    '^@/pages/(.*)$': '<rootDir>src/pages/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
-    '.+\\.(css|styl|less|sass|scss|png|gif|jpg|ttf|woff|woff2)$':
-      'identity-obj-proxy',
+    '.+\\.(css|styl|less|sass|scss|png|gif|jpg|ttf|woff|woff2)$': 'identity-obj-proxy',
   },
   transform: {
     '^.+\\.svg$': 'jest-svg-transformer',

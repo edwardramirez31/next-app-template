@@ -26,7 +26,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Run the tests and generate coverage report
-      run: yarn test -- --coverage
+      run: yarn test:ci
 
   release:
     name: Run semantic release

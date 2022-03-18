@@ -1,7 +1,7 @@
-import { getTasks, getTasksLoading } from '../tasks';
 import { MOCKED_INCOMPLETED_TASKS } from '../../../mock_data/tasks';
 import type { RootState } from '../../index';
-import type { Task } from '../../slices/taskSlice';
+import type { Task } from '../../slices/tasks';
+import { getTasks, getTasksLoading } from '../tasks';
 
 const buildState = (tasks: Task[], loading: boolean, error: string | null): RootState => ({
   task: {
